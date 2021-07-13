@@ -1,6 +1,10 @@
-<div class="center jumbotron">
-  <div class="text-center">
-    <h1>Splatoon2<h1>
-    <h2 class="mt-5">ブキランダム</h2>
+<% if login? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Splatoon2<h1>
+      <h2 class="mt-5">ブキランダム</h2>
+    </div>
   </div>
-</div>
+<% end %>
