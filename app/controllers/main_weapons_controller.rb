@@ -5,6 +5,7 @@ class MainWeaponsController < ApplicationController
   end
 
   def show
+    @main_weapon = MainWeapon.find(params[:id])
   end
 
 end

@@ -1,2 +1,18 @@
-<h1>MainWeapons#show</h1>
-<p>Find me in app/views/main_weapons/show.html.erb</p>
+<div class="text-center mb-5">
+  <h1><%= @main_weapon.name %></h1>
+  <p class="mt-5">
+    <img class="rounded" src=<%= "/main_weapons/#{@main_weapon.image}" %> alt="Main Weapon" width="160px" height="160px">
+  </p>
+  <p>
+    <img class="rounded" src=<%= "/sub_weapons/#{@main_weapon.sub_weapon.image}" %> alt="Sub Weapon" width="80px" height="80px">
+    <img class="rounded" src=<%= "/special_weapons/#{@main_weapon.special_weapon.image}" %> alt="Special Weapon" width="80px" height="80px">
+  </p>
+  <div class="row mt-5">
+    <table class="offset-md-3 col-md-6 table table-bordered">
+      <tr>
+        <th>合計</td>
+        <th>0</td>
+      </tr>
+    </table>
+  </div>
+</div>

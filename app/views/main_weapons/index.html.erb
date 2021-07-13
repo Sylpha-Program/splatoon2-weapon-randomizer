@@ -4,7 +4,7 @@
     <% @main_weapons.each do |main_weapon| %>
       <div class="col-xl-4 col-md-6 border pt-5 py-3">
         <p>
-          <img class="rounded mx-auto" src=<%= "/main_weapons/#{main_weapon.image}" %> alt="Main Weapon" width="160px" height="160px">
+          <img class="rounded" src=<%= "/main_weapons/#{main_weapon.image}" %> alt="Main Weapon" width="160px" height="160px">
         </p>
         <p>
           <img class="rounded" src=<%= "/sub_weapons/#{main_weapon.sub_weapon.image}" %> alt="Sub Weapon" width="80px" height="80px">
