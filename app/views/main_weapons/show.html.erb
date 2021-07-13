@@ -11,8 +11,14 @@
     <table class="offset-lg-3 col-lg-6 table table-bordered">
       <tr>
         <th>合計</td>
-        <th>0</td>
+        <th><%= @total_point %></td>
       </tr>
+      <% @scores.each do |score| %>
+        <tr>
+          <td><%= score.stage.name %></td>
+          <td><%= score.point %></td>
+        </tr>
+      <% end %>
     </table>
   </div>
 </div>

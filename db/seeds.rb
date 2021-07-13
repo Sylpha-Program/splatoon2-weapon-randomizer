@@ -193,3 +193,9 @@ Stage.create(name: 'アンチョビットゲームズ', image: 'ancho-v_games.jp
 Stage.create(name: 'ムツゴ楼', image: 'skipper_pavilion.jpg')
 
 User.create(name: 'Sylpha', email: 'sylpha.games@gmail.com', password: 'sayumi729864')
+
+MainWeapon.order(id: :asc).each do |main_weapon|
+  Stage.order(id: :asc).each do |stage|
+    Score.create(user_id: 1, main_weapon_id: main_weapon.id, stage_id: stage.id)
+  end
+end

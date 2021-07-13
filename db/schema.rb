@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_075317) do
+ActiveRecord::Schema.define(version: 2021_07_13_082439) do
 
   create_table "main_weapons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 2021_07_13_075317) do
     t.index ["special_weapon_id"], name: "index_main_weapons_on_special_weapon_id"
     t.index ["sub_weapon_id"], name: "index_main_weapons_on_sub_weapon_id"
     t.index ["weapon_category_id"], name: "index_main_weapons_on_weapon_category_id"
+  end
+
+  create_table "scores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "main_weapon_id"
+    t.bigint "stage_id"
+    t.integer "point", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_weapon_id"], name: "index_scores_on_main_weapon_id"
+    t.index ["stage_id"], name: "index_scores_on_stage_id"
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "special_weapons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -63,4 +75,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_075317) do
   add_foreign_key "main_weapons", "special_weapons"
   add_foreign_key "main_weapons", "sub_weapons"
   add_foreign_key "main_weapons", "weapon_categories"
+  add_foreign_key "scores", "main_weapons"
+  add_foreign_key "scores", "stages"
+  add_foreign_key "scores", "users"
 end

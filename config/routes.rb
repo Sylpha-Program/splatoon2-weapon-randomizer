@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   post 'main_weapons/random', to: 'main_weapons#random'
+  get 'main_weapons/:id/score', to: 'main_weapons#score_edit'
+  post 'main_weapons/:id/score', to: 'main_weapons#score_update'
   resources :main_weapons, only: [:index, :show]
 
   resources :stages, only: [:index, :show]
