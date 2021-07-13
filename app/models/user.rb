@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :scores, dependent: :destroy
+  has_many :gears, dependent: :destroy
   
 end
