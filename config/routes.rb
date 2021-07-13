@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post 'main_weapons/random', to: 'main_weapons#random'
   resources :main_weapons, only: [:index, :show]
 
+  resources :stages, only: [:index, :show]
+
 end
