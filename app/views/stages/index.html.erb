@@ -4,7 +4,7 @@
     <% @stages.each do |stage| %>
       <div class="col-xl-4 col-md-6 border pt-5 pb-3">
         <p>
-          <img class="rounded mx-auto" src=<%= "/stages/#{stage.image}" %> alt="Stage" width="320px" height="180px">
+          <img class="rounded" src=<%= "/stages/#{stage.image}" %> alt="Stage" width="320px" height="180px">
         </p>
         <p class="mt-3"><%= link_to stage.name, stage_path(stage), class: 'font-weight-bold h5' %></p>
       </div>
