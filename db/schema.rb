@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_060937) do
+ActiveRecord::Schema.define(version: 2021_07_13_061420) do
+
+  create_table "main_weapons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.bigint "weapon_category_id"
+    t.bigint "sub_weapon_id"
+    t.bigint "special_weapon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["special_weapon_id"], name: "index_main_weapons_on_special_weapon_id"
+    t.index ["sub_weapon_id"], name: "index_main_weapons_on_sub_weapon_id"
+    t.index ["weapon_category_id"], name: "index_main_weapons_on_weapon_category_id"
+  end
 
   create_table "special_weapons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -40,4 +53,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_060937) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "main_weapons", "special_weapons"
+  add_foreign_key "main_weapons", "sub_weapons"
+  add_foreign_key "main_weapons", "weapon_categories"
 end
