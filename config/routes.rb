@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  post 'main_weapons/random', to: 'main_weapons#random'
   resources :main_weapons, only: [:index, :show]
 
 end
