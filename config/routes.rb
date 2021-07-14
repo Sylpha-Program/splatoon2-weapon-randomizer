@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   resources :gears, only: [:index, :new, :create, :edit, :update, :destroy]
 
+  resources :gear_sets, only: [:index, :new, :create, :edit, :update, :destroy]
+
 end

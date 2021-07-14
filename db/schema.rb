@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_094809) do
+ActiveRecord::Schema.define(version: 2021_07_14_042503) do
 
   create_table "abilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,21 @@ ActiveRecord::Schema.define(version: 2021_07_13_094809) do
     t.integer "gear_category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "gear_sets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "main_weapon_id"
+    t.bigint "headgear_id"
+    t.bigint "clothing_id"
+    t.bigint "shoes_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clothing_id"], name: "index_gear_sets_on_clothing_id"
+    t.index ["headgear_id"], name: "index_gear_sets_on_headgear_id"
+    t.index ["main_weapon_id"], name: "index_gear_sets_on_main_weapon_id"
+    t.index ["shoes_id"], name: "index_gear_sets_on_shoes_id"
+    t.index ["user_id"], name: "index_gear_sets_on_user_id"
   end
 
   create_table "gears", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -97,6 +112,11 @@ ActiveRecord::Schema.define(version: 2021_07_13_094809) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "gear_sets", "gears", column: "clothing_id"
+  add_foreign_key "gear_sets", "gears", column: "headgear_id"
+  add_foreign_key "gear_sets", "gears", column: "shoes_id"
+  add_foreign_key "gear_sets", "main_weapons"
+  add_foreign_key "gear_sets", "users"
   add_foreign_key "gears", "abilities", column: "main_ability_id"
   add_foreign_key "gears", "abilities", column: "sub_ability_1_id"
   add_foreign_key "gears", "abilities", column: "sub_ability_2_id"

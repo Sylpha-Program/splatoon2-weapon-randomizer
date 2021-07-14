@@ -5,5 +5,6 @@ class MainWeapon < ApplicationRecord
   belongs_to :special_weapon
 
   has_many :scores
+  has_many :gear_sets
   
 end

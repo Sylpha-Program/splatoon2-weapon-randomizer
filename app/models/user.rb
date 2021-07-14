@@ -9,5 +9,6 @@ class User < ApplicationRecord
   
   has_many :scores, dependent: :destroy
   has_many :gears, dependent: :destroy
+  has_many :gear_sets, dependent: :destroy
   
 end
