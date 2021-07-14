@@ -4,7 +4,7 @@
   <h2 class="mt-5">アタマ</h2>
   <div class="row mt-5">
     <% @headgear.each do |headgear| %>
-      <div class="col-xl-4 col-md-6 border pt-5 pb-3">
+      <div class="col-lg-6 border pt-5 pb-3">
         <p>
           <%= link_to headgear.name, edit_gear_path(headgear), class: 'font-weight-bold h5' %>
         </p>
@@ -20,7 +20,7 @@
   <h2 class="mt-5">フク</h2>
   <div class="row mt-5">
     <% @clothing.each do |clothing| %>
-      <div class="col-xl-4 col-md-6 border pt-5 pb-3">
+      <div class="col-lg-6 border pt-5 pb-3">
         <p>
           <%= link_to clothing.name, edit_gear_path(clothing), class: 'font-weight-bold h5' %>
         </p>
@@ -36,7 +36,7 @@
   <h2 class="mt-5">クツ</h2>
   <div class="row mt-5">
     <% @shoes.each do |shoes| %>
-      <div class="col-xl-4 col-md-6 border pt-5 pb-3">
+      <div class="col-lg-6 border pt-5 pb-3">
         <p>
           <%= link_to shoes.name, edit_gear_path(shoes), class: 'font-weight-bold h5' %>
         </p>

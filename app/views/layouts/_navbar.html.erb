@@ -10,7 +10,7 @@
           <li class="nav-item"><%= link_to 'ブキ', main_weapons_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'ステージ', stages_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'ギア', gears_path, class: 'nav-link' %></li>
-          <li class="nav-item"><a href="#" class="nav-link">ギアセット</a></li>
+          <li class="nav-item"><%= link_to 'ギアセット', gear_sets_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to current_user.name, user_path(current_user), class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
         <% else %>

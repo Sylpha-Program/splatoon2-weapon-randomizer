@@ -40,7 +40,7 @@ class GearsController < ApplicationController
       redirect_to gears_path
     else
       flash.now[:danger] = '更新に失敗しました。'
-      render :new
+      render :edit
     end
   end
 
