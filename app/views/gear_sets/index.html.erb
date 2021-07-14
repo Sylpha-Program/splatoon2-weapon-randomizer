@@ -1,2 +1,35 @@
-<h1>GearSets#index</h1>
-<p>Find me in app/views/gear_sets/index.html.erb</p>
+<div class="text-center mb-5">
+  <h1>ギアセット一覧</h1>
+  <p class="mt-5"><%= link_to 'ギアセット新規登録', new_gear_set_path, class: 'btn btn-lg btn-primary' %></p>
+  <div class="row mt-5">
+    <% @gear_sets.each do |gear_set| %>
+      <div class="col-xl-4 col-md-6 border pt-5 pb-3">
+        <p>
+          <img class="rounded" src=<%= "/main_weapons/#{gear_set.main_weapon.image}" %> alt="Main Weapon" width="160px" height="160px">
+        </p>
+        <p><%= link_to gear_set.main_weapon.name, edit_gear_set_path(gear_set), class: 'font-weight-bold h5' %></p>
+        <p>
+          <img class="rounded" src=<%= "/abilities/#{gear_set.headgear.main_ability.image}" %> alt="Main Power" width="80px" height="80px">
+          <img class="rounded" src=<%= "/abilities/#{gear_set.headgear.sub_ability_1.image}" %> alt="Sub Power" width="40px" height="40px">
+          <img class="rounded" src=<%= "/abilities/#{gear_set.headgear.sub_ability_2.image}" %> alt="Sub Power" width="40px" height="40px">
+          <img class="rounded" src=<%= "/abilities/#{gear_set.headgear.sub_ability_3.image}" %> alt="Sub Power" width="40px" height="40px">
+        </p>
+        <p>
+          <img class="rounded" src=<%= "/abilities/#{gear_set.clothing.main_ability.image}" %> alt="Main Power" width="80px" height="80px">
+          <img class="rounded" src=<%= "/abilities/#{gear_set.clothing.sub_ability_1.image}" %> alt="Sub Power" width="40px" height="40px">
+          <img class="rounded" src=<%= "/abilities/#{gear_set.clothing.sub_ability_2.image}" %> alt="Sub Power" width="40px" height="40px">
+          <img class="rounded" src=<%= "/abilities/#{gear_set.clothing.sub_ability_3.image}" %> alt="Sub Power" width="40px" height="40px">
+        </p>
+        <p>
+          <img class="rounded" src=<%= "/abilities/#{gear_set.shoes.main_ability.image}" %> alt="Main Power" width="80px" height="80px">
+          <img class="rounded" src=<%= "/abilities/#{gear_set.shoes.sub_ability_1.image}" %> alt="Sub Power" width="40px" height="40px">
+          <img class="rounded" src=<%= "/abilities/#{gear_set.shoes.sub_ability_2.image}" %> alt="Sub Power" width="40px" height="40px">
+          <img class="rounded" src=<%= "/abilities/#{gear_set.shoes.sub_ability_3.image}" %> alt="Sub Power" width="40px" height="40px">
+        </p>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-center mt-5">
+    <%= paginate @gear_sets %>
+  </div>
+</div>

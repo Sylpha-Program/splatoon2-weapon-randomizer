@@ -1,12 +1,12 @@
 class GearsController < ApplicationController
 
   before_action :require_user_login
-  before_action :set_gear, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @headgear = Gear.where(category: 1).order(main_ability_id: :asc)
-    @clothing = Gear.where(category: 2).order(main_ability_id: :asc)
-    @shoes = Gear.where(category: 3).order(main_ability_id: :asc)
+    @headgear = Gear.where(category: 1, user_id: session[:user_id]).order(main_ability_id: :asc)
+    @clothing = Gear.where(category: 2, user_id: session[:user_id]).order(main_ability_id: :asc)
+    @shoes = Gear.where(category: 3, user_id: session[:user_id]).order(main_ability_id: :asc)
   end
 
   def new
@@ -56,8 +56,12 @@ class GearsController < ApplicationController
     params.require(:gear).permit(:name, :category, :main_ability_id, :sub_ability_1_id, :sub_ability_2_id, :sub_ability_3_id)
   end
 
-  def set_gear
+  def ensure_correct_user
     @gear = Gear.find(params[:id])
+    if @gear.user_id != current_user.id
+      flash[:danger] = "権限がありません"
+      redirect_to root_url
+    end
   end
 
 end
