@@ -1,9 +1,9 @@
 <div class="text-center mb-5">
   <% if @main_weapon %>
     <% if login? %>
-      <p><%= link_to @main_weapon.name, main_weapon_path(@main_weapon), class: 'font-weight-bold h4' %></p>
+      <p><%= link_to @main_weapon.name, main_weapon_path(@main_weapon), class: 'font-weight-bold h5' %></p>
     <% else %>
-      <p class="font-weight-bold h4"><%= @main_weapon.name %></p>
+      <p class="font-weight-bold h5"><%= @main_weapon.name %></p>
     <% end %>
     <p class="mt-5">
       <img class="rounded mx-auto" src=<%= "/main_weapons/#{@main_weapon.image}" %> alt="Main Weapon" width="160px" height="160px">
