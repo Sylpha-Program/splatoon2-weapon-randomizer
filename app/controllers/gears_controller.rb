@@ -3,6 +3,9 @@ class GearsController < ApplicationController
   before_action :require_user_login
 
   def index
+    @headgear = Gear.where(category: 1).order(main_ability_id: :asc)
+    @clothing = Gear.where(category: 2).order(main_ability_id: :asc)
+    @shoes = Gear.where(category: 3).order(main_ability_id: :asc)
   end
 
   def new
@@ -17,10 +20,10 @@ class GearsController < ApplicationController
     @gear.user_id = session[:user_id]
     if @gear.save
       flash[:success] = '登録しました。'
-      redirect_to root_url
+      redirect_to gears_path
     else
       flash[:danger] = '登録に失敗しました。'
-      redirect_to root_url
+      redirect_to gears_path
     end
   end
 
