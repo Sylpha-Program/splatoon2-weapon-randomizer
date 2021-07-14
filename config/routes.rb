@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   resources :stages, only: [:index, :show]
 
+  resources :gears, only: [:index, :new, :create, :edit, :update, :destroy]
+
 end

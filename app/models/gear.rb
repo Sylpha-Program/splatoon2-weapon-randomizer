@@ -6,6 +6,6 @@ class Gear < ApplicationRecord
   belongs_to :sub_ability_2, class_name: 'Ability'
   belongs_to :sub_ability_3, class_name: 'Ability'
 
-  enum category: { Headgear: 1, Clothing: 2, Shoes: 3}
+  enum category: { 'アタマ': 1, 'フク': 2, 'クツ': 3}
 
 end

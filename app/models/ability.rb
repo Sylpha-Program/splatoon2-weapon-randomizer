@@ -1,5 +1,5 @@
 class Ability < ApplicationRecord
 
-  enum gear_category: { Any: 0, Headgear: 1, Clothing: 2, Shoes: 3}
+  enum gear_category: { 'アタマ・フク・クツ': 0, 'アタマ': 1, 'フク': 2, 'クツ': 3}
   
 end
