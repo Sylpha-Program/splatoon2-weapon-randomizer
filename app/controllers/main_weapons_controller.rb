@@ -6,6 +6,7 @@ class MainWeaponsController < ApplicationController
 
   def show
     @main_weapon = MainWeapon.find(params[:id])
+    @gear_set = GearSet.find_by(user_id: session[:user_id], main_weapon_id: params[:id])
     @scores = Score.where(user_id: session[:user_id], main_weapon_id: params[:id]).order(stage_id: :asc)
     @total_point = @scores.sum(:point)
   end
