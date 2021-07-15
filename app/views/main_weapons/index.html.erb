@@ -1,5 +1,8 @@
 <div class="text-center mb-5">
   <h1>ブキ一覧</h1>
+  <div class="d-flex justify-content-center mt-5">
+    <%= paginate @main_weapons %>
+  </div>
   <div class="row mt-5">
     <% @main_weapons.each do |main_weapon| %>
       <div class="col-xl-4 col-md-6 border pt-5 pb-3">

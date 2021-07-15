@@ -1,6 +1,9 @@
 <div class="text-center mb-5">
   <h1>ギアセット一覧</h1>
   <p class="mt-5"><%= link_to 'ギアセット新規登録', new_gear_set_path, class: 'btn btn-lg btn-primary' %></p>
+  <div class="d-flex justify-content-center mt-5">
+    <%= paginate @gear_sets %>
+  </div>
   <div class="row mt-5">
     <% @gear_sets.each do |gear_set| %>
       <div class="col-xl-4 col-md-6 border pt-5 pb-3">
