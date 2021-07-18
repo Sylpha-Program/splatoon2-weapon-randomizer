@@ -10,6 +10,6 @@ class Gear < ApplicationRecord
   has_many :clothing, class_name: 'GearSet', foreign_key: 'clothing_id', dependent: :destroy
   has_many :shoes, class_name: 'GearSet', foreign_key: 'shoes_id', dependent: :destroy
 
-  enum category: { 'アタマ': 1, 'フク': 2, 'クツ': 3}
+  enum category: { 'アタマ': 1, 'フク': 2, 'クツ': 3 }
 
 end
