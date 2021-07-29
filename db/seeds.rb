@@ -226,3 +226,11 @@ MainWeapon.order(id: :asc).each do |main_weapon|
     Score.create(user_id: 1, main_weapon_id: main_weapon.id, stage_id: stage.id)
   end
 end
+
+Gear.create(name: 'イカ速1.2', category: 1, user_id: 1, main_ability_id: 5, sub_ability_1_id: 5, sub_ability_2_id: 5, sub_ability_3_id: 12)
+Gear.create(name: 'イカ速1.2', category: 2, user_id: 1, main_ability_id: 5, sub_ability_1_id: 5, sub_ability_2_id: 5, sub_ability_3_id: 10)
+Gear.create(name: 'イカ速1.2', category: 3, user_id: 1, main_ability_id: 5, sub_ability_1_id: 5, sub_ability_2_id: 5, sub_ability_3_id: 13)
+
+MainWeapon.order(id: :asc).each do |main_weapon|
+    GearSet.create(user_id: 1, main_weapon_id: main_weapon.id, headgear_id: 1, clothing_id: 2, shoes_id: 3)
+end
