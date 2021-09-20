@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_042503) do
+ActiveRecord::Schema.define(version: 2021_09_20_040236) do
 
   create_table "abilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -69,7 +69,8 @@ ActiveRecord::Schema.define(version: 2021_07_14_042503) do
     t.bigint "user_id"
     t.bigint "main_weapon_id"
     t.bigint "stage_id"
-    t.integer "point", default: 0
+    t.integer "total_point", default: 0
+    t.integer "max_point", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["main_weapon_id"], name: "index_scores_on_main_weapon_id"

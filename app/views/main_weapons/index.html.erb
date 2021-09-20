@@ -14,6 +14,9 @@
           <img class="rounded" src=<%= "/special_weapons/#{main_weapon.special_weapon.image}" %> alt="Special Weapon" width="80px" height="80px">
         </p>
         <p><%= link_to main_weapon.name, main_weapon_path(main_weapon), class: 'font-weight-bold h5' %></p>
+        <% if login? %>
+          <p class="font-weight-bold h4 mb-3">Lv.<%= Math.sqrt((Score.where(user_id: session[:user_id], main_weapon_id: main_weapon.id).sum(:total_point)) / 100).floor %></p>
+        <% end %>
       </div>
     <% end %>
   </div>

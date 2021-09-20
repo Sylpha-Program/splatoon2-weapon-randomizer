@@ -1,12 +1,15 @@
 <div class="text-center mb-5">
-  <h1 class="h5 font-weight-bold"><%= @main_weapon.name %></h1>
-  <p class="mt-5">
+  <p>
     <img class="rounded" src=<%= "/main_weapons/#{@main_weapon.image}" %> alt="Main Weapon" width="160px" height="160px">
   </p>
   <p>
     <img class="rounded" src=<%= "/sub_weapons/#{@main_weapon.sub_weapon.image}" %> alt="Sub Weapon" width="80px" height="80px">
     <img class="rounded" src=<%= "/special_weapons/#{@main_weapon.special_weapon.image}" %> alt="Special Weapon" width="80px" height="80px">
   </p>
+  <h1 class="h5 font-weight-bold"><%= @main_weapon.name %></h1>
+  <% if login? %>
+    <p class="font-weight-bold h4 mb-3">Lv.<%= @level %></p>
+  <% end %>
   <% if @gear_set %>
     <p>
       <img class="rounded" src=<%= "/abilities/#{@gear_set.headgear.main_ability.image}" %> alt="Main Power" width="80px" height="80px">
@@ -31,13 +34,15 @@
   <div class="row mt-5">
     <table class="offset-lg-3 col-lg-6 table table-bordered">
       <tr>
-        <th>平均</th>
-        <th><%= @average_point %></th>
+        <th>ステージ</th>
+        <th>合計</th>
+        <th>最高</th>
       </tr>
       <% @scores.each do |score| %>
         <tr>
-          <td><%= score.stage.name %></td>
-          <td><%= score.point %></td>
+          <th><%= score.stage.name %></th>
+          <td><%= score.total_point %></td>
+          <td><%= score.max_point %></td>
         </tr>
       <% end %>
     </table>

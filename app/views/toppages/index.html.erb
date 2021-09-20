@@ -9,9 +9,11 @@
     </p>
     <% if login? %>
       <p><%= link_to @main_weapon.name, main_weapon_path(@main_weapon), class: 'font-weight-bold h5' %></p>
+      <p class="font-weight-bold h4 mb-3">Lv.<%= @level %></p>
     <% else %>
       <p class="font-weight-bold h5"><%= @main_weapon.name %></p>
     <% end %>
+    
     <% if @gear_set %>
       <p>
         <img class="rounded" src=<%= "/abilities/#{@gear_set.headgear.main_ability.image}" %> alt="Main Power" width="80px" height="80px">
@@ -38,17 +40,5 @@
     <% if @main_weapon %>
       <p class="mt-5"><%= link_to '塗りポイント登録', "/main_weapons/#{@main_weapon.id}/score", class: 'btn btn-lg btn-primary' %></p>
     <% end %>
-    <div class="row mt-5">
-      <table class="offset-xl-4 col-xl-4 offset-md-3 col-md-6 table table-bordered">
-        <tr>
-          <td>達成率</td>
-          <td><%= @achievement_rate %>％（<%= @achievement_scores %>／<%= @all_scores %>）</td>
-        </tr>
-        <tr>
-          <td>平均ポイント</td>
-          <td><%= @average_point %></td>
-        </tr>
-      </table>
-    </div>
   <% end %>
 </div>
