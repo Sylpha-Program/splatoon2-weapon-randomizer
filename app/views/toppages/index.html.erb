@@ -1,17 +1,17 @@
 <div class="text-center mb-5">
   <% if @main_weapon %>
-    <% if login? %>
-      <p><%= link_to @main_weapon.name, main_weapon_path(@main_weapon), class: 'font-weight-bold h5' %></p>
-    <% else %>
-      <p class="font-weight-bold h5"><%= @main_weapon.name %></p>
-    <% end %>
-    <p class="mt-5">
+    <p>
       <img class="rounded mx-auto" src=<%= "/main_weapons/#{@main_weapon.image}" %> alt="Main Weapon" width="160px" height="160px">
     </p>
     <p>
       <img class="rounded" src=<%= "/sub_weapons/#{@main_weapon.sub_weapon.image}" %> alt="Sub Weapon" width="80px" height="80px">
       <img class="rounded" src=<%= "/special_weapons/#{@main_weapon.special_weapon.image}" %> alt="Special Weapon" width="80px" height="80px">
     </p>
+    <% if login? %>
+      <p><%= link_to @main_weapon.name, main_weapon_path(@main_weapon), class: 'font-weight-bold h5' %></p>
+    <% else %>
+      <p class="font-weight-bold h5"><%= @main_weapon.name %></p>
+    <% end %>
     <% if @gear_set %>
       <p>
         <img class="rounded" src=<%= "/abilities/#{@gear_set.headgear.main_ability.image}" %> alt="Main Power" width="80px" height="80px">
