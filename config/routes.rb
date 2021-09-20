@@ -20,7 +20,4 @@ Rails.application.routes.draw do
 
   resources :gear_sets, only: [:index, :new, :create, :edit, :update, :destroy]
 
-  get 'scores/revise', to: 'scores#edit'
-  post 'scores/revise', to: 'scores#update'
-
 end

@@ -7,6 +7,7 @@
     <img class="rounded" src=<%= "/special_weapons/#{@main_weapon.special_weapon.image}" %> alt="Special Weapon" width="80px" height="80px">
   </p>
   <p><%= link_to @main_weapon.name, main_weapon_path(@main_weapon), class: 'font-weight-bold h5' %></p>
+  <p class="font-weight-bold h4 mb-3">Lv.<%= @level %></p>
 </div>
 <div class="row my-5">
   <div class="offset-xl-4 col-xl-4 offset-md-3 col-md-6">
