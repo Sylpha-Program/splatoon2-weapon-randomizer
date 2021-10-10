@@ -22,6 +22,7 @@ class MainWeaponsController < ApplicationController
 
   def score_edit
     @main_weapon = MainWeapon.find(params[:id])
+    @gear_set = GearSet.find_by(user_id: session[:user_id], main_weapon_id: params[:id])
     @stages = Stage.order(id: :asc)
     @level = Math.sqrt((Score.where(user_id: session[:user_id], main_weapon_id: params[:id]).sum(:total_point)) / 100).floor
   end
