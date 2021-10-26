@@ -34,7 +34,13 @@ class MainWeaponsController < ApplicationController
     @score.save
     @current_level = Math.sqrt((Score.where(user_id: session[:user_id], main_weapon_id: params[:id]).sum(:total_point)) / 100).floor
     if @current_level > @previous_level
-      flash[:success] = "#{@score.main_weapon.name}のレベルが#{@current_level}に上がりました"
+      msg = "ブキ：#{@score.main_weapon.name},ステージ：#{@score.stage.name},ポイント：#{params[:point].to_i}p（過去最高：#{@score.max_point}p）,レベル：Lv.#{@previous_level}→Lv.#{@current_level}"
+      msg = msg.gsub(",","<br>")
+      flash[:success] = msg
+    else
+      msg = "ブキ：#{@score.main_weapon.name},ステージ：#{@score.stage.name},#{params[:point].to_i}p（過去最高：#{@score.max_point}p）"
+      msg = msg.gsub(",","<br>")
+      flash[:success] = msg
     end
     if params[:point].to_i > @score.max_point
       @score.update(max_point: params[:point])
