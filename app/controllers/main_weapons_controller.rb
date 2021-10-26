@@ -38,7 +38,7 @@ class MainWeaponsController < ApplicationController
       msg = msg.gsub(",","<br>")
       flash[:success] = msg
     else
-      msg = "ブキ：#{@score.main_weapon.name},ステージ：#{@score.stage.name},#{params[:point].to_i}p（過去最高：#{@score.max_point}p）"
+      msg = "ブキ：#{@score.main_weapon.name},ステージ：#{@score.stage.name},ポイント：#{params[:point].to_i}p（過去最高：#{@score.max_point}p）"
       msg = msg.gsub(",","<br>")
       flash[:success] = msg
     end
