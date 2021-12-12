@@ -2,14 +2,6 @@ class MainWeaponsController < ApplicationController
 
   def index
     @main_weapons = MainWeapon.order(id: :asc).page(params[:page]).per(66)
-    @score_1 = Score.find_by(user_id: 1, main_weapon_id: 57, stage_id: 4)
-    @score_1.total_point += 1155
-    @score_1.save
-    @score_2 = Score.find_by(user_id: 1, main_weapon_id: 57, stage_id: 10)
-    @score_2.max_point = 0
-    @score_2.total_point = 0
-    @score_2.save
-    
   end
 
   def show
