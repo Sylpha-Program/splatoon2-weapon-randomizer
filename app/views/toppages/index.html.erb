@@ -40,5 +40,24 @@
     <% if @main_weapon %>
       <p class="mt-5"><%= link_to '塗りポイント登録', "/main_weapons/#{@main_weapon.id}/score", class: 'btn btn-lg btn-primary' %></p>
     <% end %>
+    <div class="row mt-5">
+      <table class="offset-lg-3 col-lg-6 table table-bordered">
+        <tr>
+          <th>塗りポイント</th>
+          <th>ブキ</th>
+          <th>合計</th>
+        </tr>
+        <tr>
+          <th>MAX</th>
+          <th><%= @max_point_weapon.name %>（Lv.<%= Math.sqrt((Score.where(user_id: session[:user_id], main_weapon_id: @max_point_weapon.id).sum(:total_point)) / 100).floor %>）</th>
+          <th><%= @max_point %></th>
+        </tr>
+        <tr>
+          <th>MIN</th>
+          <th><%= @min_point_weapon.name %>（Lv.<%= Math.sqrt((Score.where(user_id: session[:user_id], main_weapon_id: @min_point_weapon.id).sum(:total_point)) / 100).floor %>）</th>
+          <th><%= @min_point %></th>
+        </tr>
+      </table>
+    </div>
   <% end %>
 </div>
