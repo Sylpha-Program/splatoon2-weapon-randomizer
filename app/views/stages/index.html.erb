@@ -9,7 +9,7 @@
         <p><%= link_to stage.name, stage_path(stage), class: 'font-weight-bold h5' %></p>
         <% @high_score = Score.where(user_id: session[:user_id], stage_id: stage.id).order(max_point: :desc).first %>
         <% @main_weapon = MainWeapon.find_by(id: @high_score.main_weapon_id) %>
-        <p class="font-weight-bold"><span class="fa fa-crown mr-2"></span><%= @main_weapon.name %></p>
+        <p class="font-weight-bold"><span class="fa fa-crown mr-2"></span><%= @main_weapon.name %>（<%= @high_score.max_point %>p）</p>
       </div>
     <% end %>
   </div>

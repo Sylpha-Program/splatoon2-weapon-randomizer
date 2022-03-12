@@ -49,12 +49,12 @@
         <tr>
           <th>MAX</th>
           <th><%= @max_point_weapon.name %>（Lv.<%= Math.sqrt((Score.where(user_id: session[:user_id], main_weapon_id: @max_point_weapon.id).sum(:total_point)) / 100).floor %>）</th>
-          <th><%= @max_point %></th>
+          <th><%= @max_point %>p</th>
         </tr>
         <tr>
           <th>MIN</th>
           <th><%= @min_point_weapon.name %>（Lv.<%= Math.sqrt((Score.where(user_id: session[:user_id], main_weapon_id: @min_point_weapon.id).sum(:total_point)) / 100).floor %>）</th>
-          <th><%= @min_point %></th>
+          <th><%= @min_point %>p</th>
         </tr>
       </table>
     </div>

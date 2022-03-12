@@ -5,7 +5,7 @@
   <h1 class="h4 font-weight-bold mb-3"><%= @stage.name %></h1>
   <% @high_score = Score.where(user_id: session[:user_id], stage_id: @stage.id).order(max_point: :desc).first %>
   <% @main_weapon = MainWeapon.find_by(id: @high_score.main_weapon_id) %>
-  <p class="font-weight-bold"><span class="fa fa-crown mr-2"></span><%= @main_weapon.name %></p>
+  <p class="font-weight-bold"><span class="fa fa-crown mr-2"></span><%= @main_weapon.name %>（<%= @high_score.max_point %>p）</p>
   <div class="row mt-5">
     <table class="offset-lg-3 col-lg-6 table table-bordered">
       <tr>
@@ -16,8 +16,8 @@
       <% @scores.each do |score| %>
         <tr>
           <th><%= score.main_weapon.name %></th>
-          <td><%= score.max_point %></td>
-          <td><%= score.total_point %></td>
+          <th><%= score.max_point %>p</th>
+          <th><%= score.total_point %>p</th>
         </tr>
       <% end %>
     </table>
