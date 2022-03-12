@@ -13,7 +13,6 @@
     <% else %>
       <p class="font-weight-bold h5"><%= @main_weapon.name %></p>
     <% end %>
-    
     <% if @gear_set %>
       <p>
         <img class="rounded" src=<%= "/abilities/#{@gear_set.headgear.main_ability.image}" %> alt="Main Power" width="80px" height="80px">

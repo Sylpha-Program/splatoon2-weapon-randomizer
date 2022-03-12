@@ -2,7 +2,10 @@
   <p>
     <img class="rounded" src=<%= "/stages/#{@stage.image}" %> alt="Stage" width="320px" height="180px">
   </p>
-  <h1 class="h4 font-weight-bold"><%= @stage.name %></h1>
+  <h1 class="h4 font-weight-bold mb-3"><%= @stage.name %></h1>
+  <% @high_score = Score.where(user_id: session[:user_id], stage_id: @stage.id).order(max_point: :desc).first %>
+  <% @main_weapon = MainWeapon.find_by(id: @high_score.main_weapon_id) %>
+  <p class="font-weight-bold"><span class="fa fa-crown mr-2"></span><%= @main_weapon.name %></p>
   <div class="row mt-5">
     <table class="offset-lg-3 col-lg-6 table table-bordered">
       <tr>
