@@ -2,9 +2,6 @@ class MainWeaponsController < ApplicationController
 
   def index
     @main_weapons = MainWeapon.order(id: :asc).page(params[:page]).per(66)
-    @weapon = MainWeapon.find_by(id: 25)
-    @weapon.special_weapon_id = 4
-    @weapon.save
   end
 
   def show
