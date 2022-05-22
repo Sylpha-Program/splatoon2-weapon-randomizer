@@ -62,7 +62,7 @@ MainWeapon.create(name: 'プライムシューター', image: 'splattershot_pro.
 MainWeapon.create(name: 'プライムシューターコラボ', image: 'forge_splattershot_pro.png', weapon_category_id: 1, sub_weapon_id: 2, special_weapon_id: 13)
 MainWeapon.create(name: 'プライムシューターベッチュー', image: 'kensa_splattershot_pro.png', weapon_category_id: 1, sub_weapon_id: 1, special_weapon_id: 14)
 MainWeapon.create(name: '.96ガロン', image: '96_gal.png', weapon_category_id: 1, sub_weapon_id: 11, special_weapon_id: 5)
-MainWeapon.create(name: '.96ガロンデコ', image: '96_gal_deco.png', weapon_category_id: 1, sub_weapon_id: 9, special_weapon_id: 3)
+MainWeapon.create(name: '.96ガロンデコ', image: '96_gal_deco.png', weapon_category_id: 1, sub_weapon_id: 9, special_weapon_id: 4)
 MainWeapon.create(name: 'ジェットスイーパー', image: 'jet_squelcher.png', weapon_category_id: 1, sub_weapon_id: 7, special_weapon_id: 1)
 MainWeapon.create(name: 'ジェットスイーパーカスタム', image: 'custom_jet_squelcher.png', weapon_category_id: 1, sub_weapon_id: 3, special_weapon_id: 2)
 MainWeapon.create(name: 'ノヴァブラスター', image: 'luna_blaster.png', weapon_category_id: 2, sub_weapon_id: 1, special_weapon_id: 12)
